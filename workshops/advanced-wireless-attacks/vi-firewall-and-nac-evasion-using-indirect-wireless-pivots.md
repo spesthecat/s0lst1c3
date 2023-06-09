@@ -5,13 +5,13 @@ layout: workshop
 
 # Table of Contents
 
-   * [Workshop Overview](http://solstice.sh/workshops/advanced-wireless-attacks/)
-   * [I. Target Identification Within A Red Team Environment](http://solstice.sh/workshops/advanced-wireless-attacks/i-target-identification-within-a-red-team-environment/)
-   * [II. Attacking and Gaining Entry To WPA2-EAP Wireless Networks](http://solstice.sh/workshops/advanced-wireless-attacks/ii-attacking-and-gaining-entry-to-wpa2-eap-wireless-networks/)
-   * [III. EAP Downgrade Attacks](http://solstice.sh/workshops/advanced-wireless-attacks/iii-eap-downgrade-attacks/)
-   * [IV. Wireless Man-In-The-Middle Attacks](http://solstice.sh/workshops/advanced-wireless-attacks/iv-wireless-man-in-the-middle-attacks/)
-   * [V. SMB Relays and LLMNR/NBT-NS Poisoning](http://solstice.sh/workshops/advanced-wireless-attacks/v-smb-relays-and-llmnr-nbt-ns-poisoning/)
-   * ***[VI. Firewall And NAC Evasion Using Indirect Wireless Pivots](http://solstice.sh/workshops/advanced-wireless-attacks/vi-firewall-and-nac-evasion-using-indirect-wireless-pivots/)***
+   * [Workshop Overview](http://solstice.kennethsun.net/workshops/advanced-wireless-attacks/)
+   * [I. Target Identification Within A Red Team Environment](http://solstice.kennethsun.net/workshops/advanced-wireless-attacks/i-target-identification-within-a-red-team-environment/)
+   * [II. Attacking and Gaining Entry To WPA2-EAP Wireless Networks](http://solstice.kennethsun.net/workshops/advanced-wireless-attacks/ii-attacking-and-gaining-entry-to-wpa2-eap-wireless-networks/)
+   * [III. EAP Downgrade Attacks](http://solstice.kennethsun.net/workshops/advanced-wireless-attacks/iii-eap-downgrade-attacks/)
+   * [IV. Wireless Man-In-The-Middle Attacks](http://solstice.kennethsun.net/workshops/advanced-wireless-attacks/iv-wireless-man-in-the-middle-attacks/)
+   * [V. SMB Relays and LLMNR/NBT-NS Poisoning](http://solstice.kennethsun.net/workshops/advanced-wireless-attacks/v-smb-relays-and-llmnr-nbt-ns-poisoning/)
+   * ***[VI. Firewall And NAC Evasion Using Indirect Wireless Pivots](http://solstice.kennethsun.net/workshops/advanced-wireless-attacks/vi-firewall-and-nac-evasion-using-indirect-wireless-pivots/)***
 
 ---
 
@@ -154,15 +154,15 @@ Use your Kali VM to run the bash script that we wrote in this section to create 
 
 Consider a scenario in which we have breached the perimeter of a wireless network that is used to provide access to sensitive internal resources. The sensitive resources are located on a restricted VLAN, which is not accessible from the sandboxed VLAN on which we are currently located. An authorized wireless device is currently connected to the wireless network as well, but is located on the restricted VLAN.
 
-![evil twin attack](http://solstice.sh/images/workshops/awae/v/DC-Stage-1.png)
+![evil twin attack](http://solstice.kennethsun.net/images/workshops/awae/v/DC-Stage-1.png)
 
 We can combine several of the attacks learned in this workshop to pivot into the restricted VLAN through the authorized device, even though we are located on a separate VLAN. To do this, we first force an authorized device to connect to us using an Evil Twin attack.
 
-![evil twin attack](http://solstice.sh/images/workshops/awae/v/DC-Stage-2.png)
+![evil twin attack](http://solstice.kennethsun.net/images/workshops/awae/v/DC-Stage-2.png)
 
 Once the workstation is connected to our rogue access point, we can redirect all HTTP and DNS traffic to our wireless interface as we did with the captive portal. However, instead of configuring our portal's HTTP server to merely serve a static HTML page, we configure it to redirect all HTTP traffic to an SMB share located on our machine.
 
-![evil twin attack](http://solstice.sh/images/workshops/awae/v/hostile-portz0rz.png)
+![evil twin attack](http://solstice.kennethsun.net/images/workshops/awae/v/hostile-portz0rz.png)
 
 The result is that our victim is forced to authenticate with our SMB server using NTLM, allowing us to capture the victim's Active Directory username and password hash. The hash can be cracked offline to obtain a set of Active Directory credentials, which can then be used to pivot back into the victim. This is called a Hostile Portal attack.
 
@@ -170,15 +170,15 @@ Although Hostile Portal Attacks are a fast way to steal Active Directory credent
 
 Next, we use a Hostile Portal Attack as before to force Victim B (in the diagram above) to initiate NTLM authentication with the attacker. However, instead of merely capturing the NTLM hashes as before, we instead perform an SMB Relay attack from Victim B to Victim A. This gives us remote code execution on Victim A.
 
-![evil twin attack](http://solstice.sh/images/workshops/awae/v/DC-Stage-3.png)
+![evil twin attack](http://solstice.kennethsun.net/images/workshops/awae/v/DC-Stage-3.png)
 
 We use the SMB Relay attack to place a timed payload on Victim A, then kill our acccess point to allow both vitims to connect back to the target network. The timed payload could be a scheduled task that sends a reverse shell back to our machine, allowing us to pivot from one VLAN to the other. Since both victims are authorized endpoints, they are placed back on the restricted VLAN when they reassociate with the target network.
 
-![evil twin attack](http://solstice.sh/images/workshops/awae/v/DC-Stage-4.png)
+![evil twin attack](http://solstice.kennethsun.net/images/workshops/awae/v/DC-Stage-4.png)
 
 Once this happens, the attacker simply waits for the scheduled reverse shell from Victim A. Once the attacker receives the reverse shell, he or she pivots from the quarantine VLAN to the restricted VLAN.
 
-![evil twin attack](http://solstice.sh/images/workshops/awae/v/dual-reverse.png)
+![evil twin attack](http://solstice.kennethsun.net/images/workshops/awae/v/dual-reverse.png)
 
 # Futher Reading and Lab Exercise: Hostile Portal Attacks and Indirect Wireless Pivots
 
@@ -195,6 +195,6 @@ Once you've familiarized yourself with the attack, proceed to completing the lab
 
 ---
 
-### Return to Workshop Overview: *[Workshop Overview](http://solstice.sh/workshops/advanced-wireless-attacks/)*
+### Return to Workshop Overview: *[Workshop Overview](http://solstice.kennethsun.net/workshops/advanced-wireless-attacks/)*
 
 ---

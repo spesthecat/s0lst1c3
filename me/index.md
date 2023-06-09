@@ -46,7 +46,7 @@ For my complete portfolio of projects, publications, and speaking engagements, c
 
 ## Conference Talks
 
-See [solstice.sh/presentations](http://solstice.sh/presentations) and [solstice.sh/workshops](http://solstice.sh/workshops).
+See [solstice.kennethsun.net/presentations](http://solstice.kennethsun.net/presentations) and [solstice.kennethsun.net/workshops](http://solstice.kennethsun.net/workshops).
 
 ## Open Source
 

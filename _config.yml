@@ -10,10 +10,10 @@ permalink:           pretty
 relative_permalinks: false
 
 # Setup
-title:               solstice.sh
+title:               solstice.kennethsun.net
 tagline:         "Pentesting, Offensive Security Research & Development"
 description:         "Pentesting, Offensive Security Research & Development, Python Junkie and Coffee Addict. #Hacking 247."
-url:                 http://solstice.sh
+url:                 http://solstice.kennethsun.net
 baseurl:             
 paginate:            7
 
@@ -21,7 +21,7 @@ paginate:            7
 author:
   name:              Gabriel Ryan (solstice)
   url:               https://twitter.com/s0lst1c3
-  email:             gabriel@solstice.sh
+  email:             gabriel@solstice.kennethsun.net
 
 # Custom vars
 version:             2.0
